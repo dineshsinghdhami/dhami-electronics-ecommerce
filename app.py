@@ -1309,6 +1309,16 @@ def admin_orders():
     orders = Order.query.order_by(Order.created_at.desc()).all()
     return render_template('admin/orders.html', orders=orders)
 
+@app.route('/admin/users')
+@login_required
+def admin_users():
+    if not current_user.is_admin:
+        flash('Access denied!', 'danger')
+        return redirect(url_for('index'))
+
+    users = User.query.order_by(User.created_at.desc()).all()
+    return render_template('admin/users.html', users=users)
+
 @app.route('/admin/order/<int:order_id>')
 @login_required
 def admin_order_detail(order_id):
