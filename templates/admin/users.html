@@ -1,0 +1,180 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}Users{% endblock %}
+{% block page_title %}Users{% endblock %}
+{% block page_subtitle %}Everyone registered on the store.{% endblock %}
+
+{% block content %}
+
+<div class="admin-status-row">
+    <div class="admin-status-chip chip-delivered">
+        <i class="fas fa-users"></i> Total <span class="count">{{ users|length }}</span>
+    </div>
+    <div class="admin-status-chip chip-processing">
+        <i class="fas fa-shield-alt"></i> Admins <span class="count">{{ users|selectattr('is_admin')|list|length }}</span>
+    </div>
+    <div class="admin-status-chip chip-pending">
+        <i class="fas fa-times-circle"></i> Not Verified <span class="count">{{ users|rejectattr('is_verified')|list|length }}</span>
+    </div>
+</div>
+
+<div class="admin-panel">
+    <div class="admin-panel-header">
+        <h3><i class="fas fa-users"></i> Registered Users</h3>
+    </div>
+    <div class="admin-panel-body">
+        {% if users %}
+        <div class="admin-table-wrap">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Registered On</th>
+                        <th>Verified</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in users %}
+                    <tr id="user-row-{{ user.id }}">
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.created_at.strftime('%d %b %Y') if user.created_at else '—' }}</td>
+                        <td>
+                            {% if user.is_verified %}
+                                <span class="admin-badge badge-green"><i class="fas fa-check-circle"></i> Verified</span>
+                            {% else %}
+                                <span class="admin-badge badge-red"><i class="fas fa-times-circle"></i> Not Verified</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if user.is_admin %}
+                                <span class="admin-badge badge-gold"><i class="fas fa-shield-alt"></i> Admin</span>
+                            {% else %}
+                                <span class="admin-badge badge-gray"><i class="fas fa-user"></i> User</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="admin-table-actions">
+                                {% if not user.is_admin %}
+                                    <button class="admin-pill-btn pill-blue make-admin-btn" data-user-id="{{ user.id }}" data-username="{{ user.username }}">
+                                        <i class="fas fa-user-shield"></i> Make Admin
+                                    </button>
+                                {% else %}
+                                    {% if user.id != current_user.id %}
+                                        <button class="admin-pill-btn pill-amber remove-admin-btn" data-user-id="{{ user.id }}" data-username="{{ user.username }}">
+                                            <i class="fas fa-user-minus"></i> Remove Admin
+                                        </button>
+                                    {% else %}
+                                        <span style="font-size: 0.68rem; color: var(--admin-text-faint);"><i class="fas fa-user-check"></i> Current Admin</span>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="admin-empty-state">
+            <i class="fas fa-users"></i>
+            <h3>No users yet</h3>
+            <p>Registered customers will show up here.</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Confirmation Modal for Admin Actions -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 0.7rem; background: #ffffff; color: #2c3e50; border: 1px solid #e2e6eb;">
+            <div class="modal-header" id="modalHeader" style="border-bottom: 1px solid #e2e6eb;">
+                <h5 class="modal-title" style="font-size: 0.9rem;">
+                    <span id="modalTitle">Confirm Action</span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" style="padding: 20px;">
+                <p id="confirmMessage" style="font-size: 0.85rem; margin-bottom: 8px;">Are you sure you want to perform this action?</p>
+                <p id="warningMessage" style="font-size: 0.72rem; color: #e2555f;"></p>
+            </div>
+            <div class="modal-footer" style="border-top: 1px solid #e2e6eb; padding: 12px 20px;">
+                <button type="button" class="admin-btn admin-btn-ghost" data-bs-dismiss="modal">
+                    Cancel
+                </button>
+                <button type="button" class="admin-btn admin-btn-primary" id="confirmActionBtn">
+                    Confirm
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let selectedUserId = null;
+    let selectedUsername = null;
+    let currentAction = null;
+
+    const confirmModal = new bootstrap.Modal(document.getElementById('confirmModal'));
+    const modalTitle = document.getElementById('modalTitle');
+    const modalHeader = document.getElementById('modalHeader');
+    const confirmMessage = document.getElementById('confirmMessage');
+    const warningMessage = document.getElementById('warningMessage');
+    const confirmActionBtn = document.getElementById('confirmActionBtn');
+
+    document.querySelectorAll('.make-admin-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            selectedUserId = this.getAttribute('data-user-id');
+            selectedUsername = this.getAttribute('data-username');
+            currentAction = 'make';
+
+            modalHeader.style.borderBottomColor = '#37b585';
+            modalTitle.innerHTML = '<i class="fas fa-user-shield" style="color: #37b585;"></i> Make Admin';
+            confirmMessage.innerHTML = `Make <strong>${selectedUsername}</strong> an admin?`;
+            warningMessage.innerHTML = '⚠️ This will give the user full admin privileges.';
+            confirmActionBtn.innerHTML = '<i class="fas fa-check"></i> Yes, Make Admin';
+
+            confirmModal.show();
+        });
+    });
+
+    document.querySelectorAll('.remove-admin-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            selectedUserId = this.getAttribute('data-user-id');
+            selectedUsername = this.getAttribute('data-username');
+            currentAction = 'remove';
+
+            modalHeader.style.borderBottomColor = '#e2555f';
+            modalTitle.innerHTML = '<i class="fas fa-user-minus" style="color: #e2555f;"></i> Remove Admin';
+            confirmMessage.innerHTML = `Remove admin privileges from <strong>${selectedUsername}</strong>?`;
+            warningMessage.innerHTML = '⚠️ This user will lose access to the admin panel.';
+            confirmActionBtn.innerHTML = '<i class="fas fa-check"></i> Yes, Remove Admin';
+
+            confirmModal.show();
+        });
+    });
+
+    confirmActionBtn.addEventListener('click', function() {
+        if (selectedUserId) {
+            if (currentAction === 'make') {
+                window.location.href = '/admin/make_admin/' + selectedUserId;
+            } else if (currentAction === 'remove') {
+                window.location.href = '/admin/remove_admin/' + selectedUserId;
+            }
+        }
+    });
+});
+</script>
+{% endblock %}
