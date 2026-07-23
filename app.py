@@ -20,12 +20,12 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'noreply.dhamielectronics@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ziwp apvc oals iwme'
-app.config['MAIL_DEFAULT_SENDER'] = 'noreply.dhamielectronics@gmail.com'
+app.config['MAIL_USERNAME'] = '#######@gmail.com'
+app.config['MAIL_PASSWORD'] = '##############'
+app.config['MAIL_DEFAULT_SENDER'] = '#######@gmail.com'
 
 # Admin email address for order notifications
-ADMIN_EMAIL = 'noreply.dhamielectronics@gmail.com'
+ADMIN_EMAIL = '#######@gmail.com'
 
 # Upload folder for product images
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -847,7 +847,7 @@ def send_order_confirmation_to_customer(order, user, order_items, total_amount, 
             <div class="support-box">
                 <div class="support-title">📞 Need Assistance?</div>
                 <div class="support-text">
-                    📧 <a href="mailto:noreply.dhamielectronics@gmail.com">support@dhamielectronics.com</a><br>
+                    📧 <a href="mailto:#######F@gmail.com">support@dhamielectronics.com</a><br>
                     📱 +977-9866109958<br>
                     ⏰ 10:00 AM - 6:00 PM (Sun-Fri)
                 </div>
@@ -1675,8 +1675,8 @@ def update_order_status(order_id):
             <div class="support-box">
                 <div class="support-title">📞 Need Assistance?</div>
                 <div class="support-text">
-                    📧 <a href="mailto:noreply.dhamielectronics@gmail.com">support@dhamielectronics.com</a><br>
-                    📱 +977-9866109958<br>
+                    📧 <a href="mailto:########@gmail.com">support@dhamielectronics.com</a><br>
+                    📱 +977-98********<br>
                     ⏰ 10:00 AM - 6:00 PM (Sun-Fri)
                 </div>
             </div>
@@ -2468,7 +2468,7 @@ def send_cancellation_confirmation_to_customer(order, user):
             <div class="support-box">
                 <div class="support-title">📞 Need Assistance?</div>
                 <div class="support-text">
-                    📧 <a href="mailto:noreply.dhamielectronics@gmail.com">support@dhamielectronics.com</a><br>
+                    📧 <a href="mailto:#######@gmail.com">support@dhamielectronics.com</a><br>
                     📱 +977-9866109958<br>
                     ⏰ 10:00 AM - 6:00 PM (Sun-Fri)
                 </div>
@@ -2620,7 +2620,7 @@ if __name__ == '__main__':
         # Create default admin only if no admin exists
         admin = User.query.filter_by(username='dhamielectronics').first()
         if not admin:
-            admin = User(username='dhamielectronics', email='noreply.dhamielectronics@gmail.com', 
+            admin = User(username='dhamielectronics', email='#######@gmail.com', 
                         password=generate_password_hash('dhamielectronics'), 
                         is_admin=True, is_verified=True)
             db.session.add(admin)
