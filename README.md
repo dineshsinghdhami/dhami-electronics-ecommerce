@@ -1,4 +1,4 @@
-# #Dhami Electronics
+# # Dhami Electronics
 
 ![License](https://img.shields.io/badge/license-Proprietary-red)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
