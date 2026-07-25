@@ -101,3 +101,9 @@ This project is privately owned and maintained solely by the author.
 
 ---
 
+## 👨‍💻 Author Information
+
+**Dinesh Singh Dhami**  
+🌐 **Website:** https://dineshsinghdhami.com.np  
+💻 **GitHub:** https://github.com/dineshsinghdhami  
+📧 **Email:** dineshdhamidn@gmail.com
