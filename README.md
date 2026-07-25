@@ -1,55 +1,50 @@
-# 🛒 Dhami Electronics
+# #Dhami Electronics
 
 ![License](https://img.shields.io/badge/license-Proprietary-red)
 ![Python](https://img.shields.io/badge/Python-3.11%2B-blue)
 ![Flask](https://img.shields.io/badge/Flask-2.x-green)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-lightgrey)
 
-**Dhami Electronics** is a full-featured e-commerce web application built with **Flask** and **SQLite**. It provides a complete online shopping experience for electronics with a clean, mobile-responsive interface and a powerful admin panel.
+**Dhami Electronics** is a full-featured e-commerce web application built using **Flask** and **SQLite**. It provides a complete online shopping experience for electronics with a clean, responsive interface and a powerful admin dashboard.
 
-## 📖 Project Background
-
-This project was developed by **Dinesh Singh Dhami** as a complete **online electronics store** tailored for the Nepali market (NPR currency + Nepal Timezone). It includes OTP email verification, real-time stock management, smart shipping logic, and beautiful email notifications.
-
-Built to practice Flask best practices while creating a production-ready e-commerce platform from scratch.
-
-> **⚠️ Note:** This project is **NOT open source**.  
-> All source code, designs, email templates, images, and other assets are proprietary and protected by copyright law. Unauthorized copying, modification, distribution, or reuse is strictly prohibited.
+> **Note:** This project is **not open source**. All source code, designs, email templates, images, and other assets are proprietary and may not be copied, modified, or redistributed.
 
 ---
 
-## 🚀 Key Features
+## # Features
 
-- Secure registration & login with **OTP email verification**
-- Product browsing with discounts and reviews
+- Secure user registration and login
+- OTP email verification
+- Product catalog with discounts and reviews
 - Shopping cart with real-time stock validation
-- Smart shipping (Free above NPR 5000 | Flat NPR 150 otherwise)
+- Smart shipping calculation
 - Checkout and order management
-- Order cancellation (within 1 hour)
-- Beautiful mobile-responsive HTML emails (OTP, order confirmation, status updates)
-- Full admin dashboard for product & order management
+- Order cancellation within one hour
+- Responsive HTML email notifications
+- Admin dashboard for products and orders
 - Nepal Timezone (NPT) support
+- Mobile-responsive design
 
 ---
 
-## 🌐 Live Demo
+## # Live Demo
 
-👉 https://dhamielectronics.pythonanywhere.com/
+https://dhamielectronics.pythonanywhere.com/
 
 ---
 
-## 🧪 Tech Stack
+## # Tech Stack
 
 - **Backend:** Flask (Python)
-- **Database:** SQLite + SQLAlchemy
-- **Frontend:** HTML, CSS, Jinja2, Bootstrap
-- **Authentication:** Flask-Login + Werkzeug
+- **Database:** SQLite with SQLAlchemy
+- **Frontend:** HTML, CSS, Bootstrap, Jinja2
+- **Authentication:** Flask-Login, Werkzeug
 - **Email:** Flask-Mail (Gmail SMTP)
-- **Others:** pytz (Asia/Kathmandu), Secure file uploads
+- **Utilities:** pytz, Secure File Uploads
 
 ---
 
-## 📁 Project Structure
+## # Project Structure
 
 ```text
 dhami-electronics/
@@ -71,39 +66,36 @@ dhami-electronics/
 
 ---
 
-## 🔐 License (Proprietary — All Rights Reserved)
+## # License
 
-This project is proprietary software. **All rights are reserved by the author.**
+This project is **proprietary** and **all rights are reserved**.
 
-You are **NOT permitted** to:
+You may **not**:
 
-- Copy or reproduce any part of the source code
-- Modify or reuse any part of this project
-- Redistribute, republish, or upload this project to any platform
-- Use the source code, assets, email templates, or designs in personal, academic, or commercial projects
-- Reverse-engineer, decompile, or create derivative works
+- Copy or redistribute the source code
+- Modify or reuse any part of the project
+- Publish or mirror the project
+- Use the project or its assets for personal, academic, or commercial purposes without written permission
+- Reverse engineer, decompile, or create derivative works
 
-> **⚠️ Unauthorized copying, modification, distribution, publication, or reuse of this project's source code, assets, email templates, or designs constitutes copyright infringement and may result in legal action, including claims for damages, injunctive relief, and any other remedies available under applicable copyright and intellectual property laws.**
+Unauthorized copying, modification, distribution, or reuse of this project may constitute copyright infringement and may result in legal action.
 
-No license or permission is granted to use this project without the **prior written consent** of the copyright owner.
-
-For licensing inquiries or special permission, please contact the author directly.
-
-The complete legal terms are available in the [LICENSE](LICENSE.md) file.
+See the [LICENSE](LICENSE.md) file for complete terms.
 
 ---
 
-## 🤝 Contributions
+## # Contributions
 
-External contributions are **not accepted**.
+Public contributions are not accepted.
 
-This project is privately owned and maintained solely by the author.
+For collaboration or licensing inquiries, please contact the author.
 
 ---
 
-## 👨‍💻 Author Information
+## # Author
 
-**Dinesh Singh Dhami**  
-🌐 **Website:** https://dineshsinghdhami.com.np  
-💻 **GitHub:** https://github.com/dineshsinghdhami  
-📧 **Email:** dineshdhamidn@gmail.com
+**Dinesh Singh Dhami**
+
+- Website: https://dineshsinghdhami.com.np
+- GitHub: https://github.com/dineshsinghdhami
+- Email: dineshdhamidn@gmail.com
