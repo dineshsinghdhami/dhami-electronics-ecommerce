@@ -13,9 +13,9 @@ This project was developed by **Dinesh Singh Dhami** as a complete **online elec
 
 Built to practice Flask best practices while creating a production-ready e-commerce platform from scratch.
 
----
-⚠️ This project is **NOT open source**.  
-All code, designs, email templates, and assets are fully protected and may not be copied or reused without permission.
+> **⚠️ Note:** This project is **NOT open source**.  
+> All source code, designs, email templates, images, and other assets are proprietary and protected by copyright law. Unauthorized copying, modification, distribution, or reuse is strictly prohibited.
+
 ---
 
 ## 🚀 Key Features
@@ -51,11 +51,11 @@ All code, designs, email templates, and assets are fully protected and may not b
 
 ## 📁 Project Structure
 
-```bash
+```text
 dhami-electronics/
 ├── app.py
 ├── static/
-│   └── uploads/          
+│   └── uploads/
 ├── templates/
 │   ├── admin/
 │   ├── index.html
@@ -73,31 +73,31 @@ dhami-electronics/
 
 ## 🔐 License (Proprietary — All Rights Reserved)
 
-This project is **100% proprietary**.  
+This project is proprietary software. **All rights are reserved by the author.**
 
-You are **NOT allowed** to:
-- Copy this code  
-- Modify or reuse any part  
-- Redistribute or publish it  
-- Use it in personal or commercial projects  
-- Reverse-engineer or extract logic  
-- Upload it anywhere online  
+You are **NOT permitted** to:
 
-For special permissions, contact the owner directly.
+- Copy or reproduce any part of the source code
+- Modify or reuse any part of this project
+- Redistribute, republish, or upload this project to any platform
+- Use the source code, assets, email templates, or designs in personal, academic, or commercial projects
+- Reverse-engineer, decompile, or create derivative works
 
-Full legal text is included in the [LICENSE](LICENSE.md) file.
+> **⚠️ Unauthorized copying, modification, distribution, publication, or reuse of this project's source code, assets, email templates, or designs constitutes copyright infringement and may result in legal action, including claims for damages, injunctive relief, and any other remedies available under applicable copyright and intellectual property laws.**
+
+No license or permission is granted to use this project without the **prior written consent** of the copyright owner.
+
+For licensing inquiries or special permission, please contact the author directly.
+
+The complete legal terms are available in the [LICENSE](LICENSE.md) file.
 
 ---
 
 ## 🤝 Contributions
 
-External contributions are **not accepted**.  
-This project is private and owned solely by the author.
+External contributions are **not accepted**.
+
+This project is privately owned and maintained solely by the author.
 
 ---
 
-## 👨‍💻 Author Information
-
-**Name:** [Dinesh Singh Dhami](https://dineshsinghdhami.com.np)  
-**GitHub:** [https://github.com/dineshsinghdhami](https://github.com/dineshsinghdhami)  
-**Email:** [dineshdhamidn@gmail.com](mailto:dineshdhamidn@gmail.com)
