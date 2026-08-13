@@ -77,7 +77,7 @@ To request special permissions, contact:
 
 **Name:** [Dinesh Singh Dhami](https://dineshsinghdhami.com.np)  
 **GitHub:** [https://github.com/dineshsinghdhami](https://github.com/dineshsinghdhami)  
-**LinkedIn:** [https://www.linkedin.com/in/dineshsinghdhami1/](https://www.linkedin.com/in/dineshsinghdhami1/)  
+**LinkedIn:** [https://www.linkedin.com/in/dineshsinghdhami1/](https://www.linkedin.com/in/dineshsinghdhami2/)  
 **Email:** [dineshdhamidn@gmail.com](mailto:dineshdhamidn@gmail.com)
 
 ---
